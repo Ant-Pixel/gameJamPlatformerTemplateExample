@@ -1,0 +1,3 @@
+[submodule "gameJamPlatformerTemplate"]
+	path = client/lib/gameJamPlatformerTemplate
+	url = https://github.com/Ant-Pixel/gameJamPlatformerTemplate
