@@ -4,6 +4,7 @@ let gameState = {
   },
 
   create: () => {
+    game.physics.arcade.gravity.y = 100;
 
     let groundTile1Data = {
       x: 0,
@@ -12,17 +13,17 @@ let gameState = {
       height: config.gameState.groundTile.y,
       spriteKey: config.gameState.groundTile.spriteKey
     };
-    let groundTile1 = Platforming.spawnEnvironment(groundTile1Data);
+    gameState.groundTile1 = Platforming.spawnEnvironment(groundTile1Data);
 
     let phaserDudeData = {
       x: 0,
       y: 0,
       spriteKey: config.gameState.phaserDude.spriteKey
     };
-    let phaserDude = Platforming.spawnCharacter(phaserDudeData);
+    gameState.phaserDude = Platforming.spawnCharacter(phaserDudeData);
   },
 
   update: () => {
-    
+    game.physics.arcade.collide(gameState.phaserDude.sprite, gameState.groundTile1.sprite, ()=>console.log("hit"));
   }
 }
