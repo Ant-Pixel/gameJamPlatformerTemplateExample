@@ -24,22 +24,23 @@ let gameState = {
   },
 
   update: () => {
-    // Physics collisions need to be handled BEFORE velocities are set.
-    // The following line needs to effectively run before the rest of the function.
-    // Adding this in the sprite's update method does not do this.
-    // game.physics.arcade.collide(gameState.phaserDude.sprite, gameState.groundTile1.sprite);
+    Platforming.resolveCollisions();
+
+    const phaserDude = gameState.phaserDude;
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-      gameState.phaserDude.moveLeft();
+      phaserDude.moveLeft();
     } else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-      gameState.phaserDude.moveRight();
+      phaserDude.moveRight();
     }
     else {
-      gameState.phaserDude.sprite.body.velocity.x = 0;  // HACK
+      phaserDude.sprite.body.velocity.x = 0;  // HACK
     }
 
     if (game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-      gameState.phaserDude.jump();
+      phaserDude.jump();
     }
+
+    // console.log(phaserDude.sprite.body.onFloor());
   }
 }
