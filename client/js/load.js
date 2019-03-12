@@ -17,8 +17,11 @@ const loadState = {
 
         //Load your images, spritesheets, bitmaps...
         game.load.image(config.menuState.logo.spriteKey, config.menuState.logo.spriteSrc);
-        game.load.image(config.gameState.groundTile.spriteKey, config.gameState.groundTile.spriteSrc);
-        game.load.image(config.gameState.phaserDude.spriteKey, config.gameState.phaserDude.spriteSrc);
+
+        const gameState = config.gameState;
+        game.load.tilemap(gameState.tilemap.key, gameState.tilemap.src, null, Phaser.Tilemap.TILED_JSON);
+        game.load.image(gameState.tiles.key, gameState.tiles.src);
+        game.load.image(gameState.phaserDude.spriteKey, gameState.phaserDude.spriteSrc);
 
         //Load your sounds, efx, music...
         //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');

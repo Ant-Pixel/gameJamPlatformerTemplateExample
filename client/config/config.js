@@ -1,8 +1,8 @@
 const config = {};
 config.default = {};
 config.default.gameSpecs = {
-    width: 375,
-    height: 812,
+    width: 800,
+    height: 240,
     renderType: Phaser.AUTO,
     parentID : "gameContainer"
 };
@@ -29,6 +29,14 @@ config.menuState = {
     }
 };
 config.gameState = {
+  tilemap : {
+    key: "mario",
+    src: "assets/tilemaps/maps/super_mario.json",
+  },
+  tiles : {
+    key: "marioTiles",
+    src: "assets/tilemaps/tiles/super_mario.png",
+  },
   groundTile : {
     x: 50,
     y: 50,
